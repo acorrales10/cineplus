@@ -1,0 +1,118 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 7, 2022, 9:25:43 AM
+    Author     : AMCG_
+*/
+
+body{
+    height:100vh;
+    width:100vw;
+    background-color:black;
+}
+
+.container{
+    height:100%;
+    width:100%;
+   /* background-position:center;*/
+    padding-left:5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position:relative;
+
+}
+.navbar{
+    height:15vh;
+    width:100%;
+    margin:auto;
+    display:flex;
+    align-items: center;
+
+}
+
+
+nav{
+    flex:1;
+    padding-left:60px;
+}
+
+nav ul li{
+    display:inline-block;
+    list-style: none;
+    margin: 0px 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:#00A79D;
+    font-size: 20px;
+    font-family: 'Kanit', sans-serif;
+
+
+}
+
+.content{
+    position: relative;
+    height: 50%;
+}
+
+.content h1{
+    font-size: 30px;
+    font-weight: 100;
+    font-family: 'Kanit', sans-serif;
+    margin-top:24px;
+    margin-bottom: 15px;
+    color:white;
+}
+
+.content p{
+    font-size: 30px;
+    color:gray;
+}
+.logo{
+    width:200px;
+    cursor:pointer;
+}
+
+div.gallery {
+  border: 1px solid #ccc;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+}
+
+@media only screen and (max-width: 700px) {
+  .responsive {
+    width: 49.99999%;
+    margin: 6px 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .responsive {
+    width: 100%;
+  }
+}
