@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <link rel ="stylesheet" href ="css/Pago.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+         
+        <div class='container'>
+            <!-- este div es nuestro contenedor general -->
+            <div class='navbar'>
+                <!-- este div es nuestra barra de navegacion  -->
+                <a href="/index.html"><img src="images/LOGO.png" class='logo' alt="Este es mi logo"/></a>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="Cartelera.html">CARTELERA</a></li>
+                        <li><a href="Asientos.html">ASIENTOS</a></li>
+                        <li><a href="Pago.html">PAGO</a></li>
+                    </ul>
+                </nav>
+            </div> 
+
+         <div class='content'>
+                <!-- este es nuestro contenido -->
+                <!-- br = break=realizar un salto de linea -->
+                <h1>REALIZA TU PAGO<br> </h1>
+        
+        </div>
+<div class="row">
+  <div class="col-75">
+    <div class="containerpago">
+      
+      
+        <div class="row">
+          <div class="col-50">
+            <h3>DATOS PERSONALES</h3>
+            <label for="fname"><i class="fa fa-user"></i> Nombre</label>
+            <input type="text" id="fname" name="firstname" placeholder="Juan Diego">
+            <label for="fname"><i class="fa fa-user"></i> Apellidos</label>
+            <input type="text" id="fname" name="firstname" placeholder="Martinez Diaz">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="juan@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Direccion</label>
+            <input type="text" id="adr" name="address" placeholder="San Jose">
+            <div class="row">
+              <div class="col-50">
+              </div>
+              <div class="col-50">
+     
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>PAGO</h3>
+            <label for="fname">Tarjetas Permitidas</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Nombre de la tarjeta</label>
+            <input type="text" id="cname" name="cardname" placeholder="Juan Martinez Diaz">
+            <label for="ccnum">Numero de Tarjeta</label>
+            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="expmonth">Fecha de emision</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="Abril">
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Vencimiento</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2023">
+              </div>
+              <div class="col-50">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="352">
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        
+        <input type="submit" value="CONTINUA PARA PAGAR" class="btn">
+   
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="containerpago">
+      <h4>COMPRA <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <p><a href="#">2 Ent. DrStrange</a> <span class="price">CRC 6000</span></p>
+      <p><a href="#">2 palomitas mixtas</a> <span class="price">CRC 5000</span></p>
+      <p><a href="#">2 bebidas medianas</a> <span class="price">CRC 2500</span></p>
+      <p><a href="#">1 Nacho</a> <span class="price">CRC 2000</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>CRC 15500</b></span></p>
+    </div>
+  </div>
+</div>
+    </body>
+      <footer>
+        <div class="redescontainer">Siguenos en nuestras redes <img src="images/facebook.png" class='redes' alt="Este es mi logo"/> <img src="images/instagram.png" class='redes' alt="Este es mi logo"/></div>
+   
+         <img src="images/LOGO.png" class='logofooter' alt="Este es mi logo"/>
+
+    </footer>
+</html>

@@ -3,7 +3,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : Jun 7, 2022, 9:25:43 AM
+    Created on : Jun 8, 2022, 12:31:22 PM
     Author     : AMCG_
 */
 
@@ -14,9 +14,8 @@ body{
 }
 
 .container{
-    height:100%;
-    width:100%;
-    /* background-position:center;*/
+    background-position:center;
+    background-size: cover;
     padding-left:5%;
     padding-right: 5%;
     box-sizing: border-box;
@@ -51,72 +50,62 @@ nav ul li a{
 
 
 }
-
-.content{
-    position: relative;
-    height: 50%;
-}
-
-.content h1{
-    font-size: 30px;
-    font-weight: 100;
-    font-family: 'Kanit', sans-serif;
-    margin-top:24px;
-    margin-bottom: 15px;
-    color:white;
-}
-
-.content p{
-    font-size: 30px;
-    color:gray;
-}
 .logo{
     width:200px;
     cursor:pointer;
 }
 
-div.gallery {
-    border: 1px solid #ccc;
+.content{
+    position: relative;
 }
 
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-div.gallery img {
-    width: 100%;
-    height: auto;
-}
-
-div.desc {
-    padding: 15px;
+.content h1{
+    font-size: 45px;
+    font-weight: 100;
+    font-family: 'Kanit', sans-serif;
+    margin-top:24px;
+    margin-bottom: 15px;
+    color:orange;
     text-align: center;
-    color:white;
-
+    display: block;
 }
 
-* {
-    box-sizing: border-box;
+.content p{
+    font-size: 50px;
+    color:gray;
 }
 
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
+.imagen{
+    height:auto;
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    text-align: center;
+    display: block;
 }
 
-@media only screen and (max-width: 700px) {
-    .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
+.button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button1 {
+    background-color: #4CAF50;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    width: 100px;
 }
 
-@media only screen and (max-width: 500px) {
-    .responsive {
-        width: 100%;
-    }
-}
+
 footer{
     height:20vh;
     width:100vw;
@@ -125,7 +114,6 @@ footer{
     color:white;
     font-size: 25px;
     font-family: 'Kanit', sans-serif;
-
 }
 .logofooter{
     width:auto;
@@ -133,7 +121,7 @@ footer{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height:70px;
+    height:50px;
     padding:10px;
 }
 
@@ -148,7 +136,5 @@ footer{
 
 .redes{
     width:32px;
-    cursor:pointer;    
+    cursor:pointer;
 }
-
-
