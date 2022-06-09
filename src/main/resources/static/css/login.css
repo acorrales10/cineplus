@@ -1,0 +1,102 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : May 25, 2022, 6:05:20 PM
+    Author     : rsolano
+*/
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+*{
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+body {
+    overflow: hidden;
+    background-color: black;
+    width: 100%;
+    height:100%;
+}
+
+
+.center {
+
+    /*  position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      background: white;
+      transform: translate(-50%,-50%);
+      border-radius: 10px;
+      box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+      
+    */
+
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    width: 400px;
+    display: table;
+    margin: -150px auto 0 auto;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+
+}
+
+.center h1 {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid silver;
+}
+
+.center form {
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+form .txt_field {
+
+    position: relative;
+    border-bottom: 2px solid silver;
+    margin: 30px 0;
+}
+
+
+
+.txt_field label {
+    position: absolute;
+    top: 50%;
+    right: 50px;
+    color: #808080;
+    transform: translate(-70px);
+    font-size: 16px;
+}
+
+input{
+    width: 100%;
+    padding: 10px 5px 10px 40px;
+    display: block;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+    transition: 0.2s ease-out;
+    color: darken(#EDEDED, 30%);
+}
+
+.input{
+    position: relative;
+    width: 90%;
+    margin: 15px auto;
+}
+
