@@ -1,0 +1,135 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 jun. 2022, 13:12:17
+    Author     : luisc
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/4907157.jpg);
+    font-family: 'Secular One', sans-serif;
+}
+
+.contenedor {
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+h1 {
+    color: tomato;
+}
+
+.Titulo {
+    height: 0px;
+    color: tomato;
+    font-size: larger;
+}
+
+.barra_navegacion {
+    background-image: url(../images/5651978.png);
+    height: 18vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center
+}
+
+nav {
+    flex: 1;
+    padding-left: 150px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: tomato;
+}
+
+.logo {
+    background-image: url(../images/5651978.png);
+    width: 155px;
+    cursor: pointer;
+}
+
+.Sinopsis {
+    background-image: url(../images/4907157.jpg);
+    font-size: small;
+    width: 500px;
+    height: 0px;
+    margin: 35px 0px;
+}
+
+.Jurassic {
+    width: 250px;
+    height: 175px;
+    margin: -40px 600px;
+}
+.Tandas {
+    color: tomato;
+    height: 0px;
+    width: 75px;
+    margin: 75px -150px;
+}
+
+nav ol li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 30px;
+}
+
+nav ol li a {
+    text-decoration: none;
+    color: black;
+}
+
+h2 {
+    color: tomato;
+}
+
+h3 {
+    color: tomato;
+}
+
+.Tanda_2d_DOB {
+    margin: 100px -150px;
+    width: 300px;
+    height: 100px;
+}
+
+.Tanda_2d_SUB {
+    margin: 100px -150px;
+    width: 300px;
+    height: 0px;
+}
+
+.Tanda_3d_DOB {
+    margin: -300px 200px;
+    width: 300px;
+    height: 0px;
+}
+
+.Tanda_3d_SUB {
+    margin: 500px 200px;
+    width: 300px;
+    height: 0px;
+}
+
+
+

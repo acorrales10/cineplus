@@ -1,0 +1,150 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 8 jun. 2022, 13:02:44
+    Author     : luisc
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    background-image: url(../images/4907157.jpg);
+    font-family: 'Secular One', sans-serif;
+}
+
+h1 {
+    color: tomato;
+}
+
+.contenedor {
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.barra_navegacion {
+    background-image: url(../images/5651978.png);
+    height: 18vh;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center
+}
+
+nav {
+    flex: 1;
+    padding-left: 150px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: tomato;
+}
+
+.logo {
+    background-image: url(../images/5651978.png);
+    width: 155px;
+    cursor: pointer;
+}
+
+.Jurassic {
+    background-image: url(../images/4907157.jpg);
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+.exorsista {
+    background-image: url(../images/4907157.jpg);
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.Luca {
+    background-image: url(../images/4907157.jpg);
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.Rocky {
+    background-image: url(../images/4907157.jpg);
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.Toy {
+    background-image: url(../images/4907157.jpg);
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.Avatar {
+    background-image: url(../images/4907157.jpg);
+    width: 300px;
+    height: 200px;
+    cursor: pointer;
+}
+
+.Estreno1 {
+    position: static;
+    text-decoration: none;
+    color: tomato;
+    margin: 20px -150px;
+}
+
+.Estreno2 {
+    position: static;
+    text-decoration: none;
+    color: tomato;
+    margin: -250px 200px;
+}
+
+.Estreno3 {
+    position: static;
+    text-decoration: none;
+    color: tomato;
+    margin: 20px 550px;
+}
+
+.Estreno4 {
+    position: static;
+    text-decoration: none;
+    color: tomato;
+    margin: 50px -150px;
+}
+
+.Estreno5 {
+    position: static;
+    text-decoration: none;
+    color: tomato;
+    margin: -280px 200px;
+}
+
+.Estreno6 {
+    position: static;
+    text-decoration: none;
+    color: tomato;
+    margin: 50px 550px;
+}
+
+.login {
+
+}
