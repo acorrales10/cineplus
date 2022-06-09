@@ -75,7 +75,7 @@ div {
 .slider-container img {
     flex: 0 0 100%;
     width: 25%;
-    object-fit: cover
+    object-fit: cover;
     scroll-snap-align: center;
 }
 
