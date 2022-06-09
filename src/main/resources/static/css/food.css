@@ -1,0 +1,81 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Jun 1, 2022, 6:02:38 PM
+    Author     : rsolano
+*/
+
+
+
+.block {
+
+
+    h1 {
+        display: block;
+        font-size: 2em;
+        margin-top: 0.67em;
+        margin-bottom: 0.67em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+
+    }
+
+
+}
+
+h1 {
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: red;
+    color: white;
+
+}
+
+h2{
+    text-align: left;
+    text-decoration: underline;
+    text-decoration-color: red;
+    color: white;
+
+}
+
+
+
+body {
+
+    /* background-image: url(../images/popcorn1.jpg); */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right bottom;
+    background-color: black;
+
+
+
+}
+
+div {
+    color: white;
+
+
+}
+
+
+.slider-container {
+    display: flex;
+    width: 25%;
+    height: 50vh;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+
+}
+
+.slider-container img {
+    flex: 0 0 100%;
+    width: 25%;
+    object-fit: cover
+    scroll-snap-align: center;
+}
+
