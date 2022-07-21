@@ -3,43 +3,40 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
 */
 /* 
-    Created on : Jun 7, 2022, 9:25:43 AM
+    Created on : Jun 7, 2022, 9:25:32 AM
     Author     : AMCG_
 */
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
 body{
     height:100vh;
     width:100vw;
     background-color:black !important;
+
 }
+
+.logo{
+    width:200px;
+    cursor:pointer;
+}
+
+
 .container-fluid{
     font-size: 16px;
     font-weight: 100;
     font-family: 'Kanit', sans-serif;
     color:#967d0b !important;
 }
-.nav navbar-nav{
-     background-color:white !important;
-    
-}
 
-.container{
-    height:100%;
-    width:100%;
-    /* background-position:center;*/
-    padding-left:5%;
-    padding-right: 5%;
-    box-sizing: border-box;
-    position:relative;
 
-}
-content{
+
+
+.content{
     position: relative;
-    height: 50%;
 }
 
 .content h1{
-    font-size: 30px;
+    font-size: 45px;
     font-weight: 100;
     font-family: 'Kanit', sans-serif;
     margin-top:24px;
@@ -48,56 +45,28 @@ content{
 }
 
 .content p{
-    font-size: 30px;
+    font-size: 45px;
     color:gray;
 }
-.logo{
-    width:200px;
-    cursor:pointer;
-}
 
-div.gallery {
-    border: 1px solid #ccc;
-}
-
-div.gallery:hover {
-    border: 1px solid #777;
-}
-
-div.gallery img {
-    width: 100%;
-    height: auto;
-}
-
-div.desc {
-    padding: 15px;
-    text-align: center;
-    color:white;
+.trailer{
+    font-size: 30px;
+    color:orange;
 
 }
 
-* {
-    box-sizing: border-box;
+.imagen{
+    height:auto;
+    width:100%;
+
 }
 
-.responsive {
-    padding: 0 6px;
-    float: left;
-    width: 24.99999%;
+.iframe{
+    height:600px;
+    width:100%;
+
 }
 
-@media only screen and (max-width: 700px) {
-    .responsive {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .responsive {
-        width: 100%;
-    }
-}
 footer{
     height:20vh;
     width:100vw;
@@ -106,7 +75,6 @@ footer{
     color:white;
     font-size: 25px;
     font-family: 'Kanit', sans-serif;
-
 }
 .logofooter{
     width:auto;
@@ -129,7 +97,13 @@ footer{
 
 .redes{
     width:32px;
-    cursor:pointer;    
+    cursor:pointer;
 }
 
+
+/*
+  position: absolute;
+    bottom:50px;
+    right:160px;
+*/
 
