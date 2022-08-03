@@ -5,8 +5,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>CrearPelicula</title>
+        <title>Agregar a Cartelera</title>
         <!-- CSS only -->
+
+        <link rel ="stylesheet" th:href="@{/css/index.css}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" >
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
     </head>
@@ -18,33 +20,64 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
                 <!-------------------Esto es un Formulario--------------- -->
                 <div class="container">
+
+                    <h2 class="mb-5 mt-5 text-white" th:text="${titulo}"/>
+
                     <form th:object = "${cartelera}"
                           th:action="@{/cartelera/save}"
                           method="POST"
                           >
                         <input type="hidden" th:field="*{id}">
+
                         <div class="form-group mb-3 row">
-                            <label class="col-md-2 col-form-label" for="nombrepelicula">Nombre pelicula</label>
+                            <label class="form-control-sm col-form-label col-md-2 text-white" for="peliculas">Seleccione la pelicula</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{nombrepelicula}" placeholder= "Nombre de la pelicula" id="peliculas" aria-describedby="emailHelp">
+                                <select th:field="*{peliculas}" class="custom-select" id="peliculas" aria-describedby="emailHelp">
+                                    <option th:each="x:${peliculas}"
+                                            th:value="${x.id}"
+                                            th:text="${x.pelicula}"/>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group mb-3 row">
-                            <label class="form-control-sm col-form-label col-md-2" for="horario">Hora</label>
+                            <label class="form-control-sm col-form-label col-md-2 text-white" for="salas">Seleccione la Sala</label>
                             <div class="col-sm-10">
-                                <input type="text" th:field="*{horario}" class="form-control form-control-sm col-md-6" placeholder= "6:00pm" id="correo" aria-describedby="emailHelp">
+                                <select th:field="*{salas}" class="custom-select" id="salas" aria-describedby="emailHelp">
+                                    <option th:each="x:${salas}"
+                                            th:value="${x.id}"
+                                            th:text="${x.nombre}"/>
+                                </select>
                             </div>
                         </div>
+
                         <div class="form-group mb-3 row">
-                            <label class="form-control-sm col-form-label col-md-2" for="sala">sala</label>
+                            <label class="form-control-sm col-form-label col-md-2 text-white" for="horario">Seleccione el horario</label>
                             <div class="col-sm-10">
-                                <input type="text" th:field="*{sala}" class="form-control form-control-sm col-md-6" placeholder= "sala " id="sala" aria-describedby="emailHelp">
+                                <select th:field="*{horario}" class="custom-select" id="horario" aria-describedby="emailHelp">
+                                    <option th:each="x:${horarios}"
+                                            th:value="${x.id}"
+                                            th:text="${x.agenda}"/>
+                                </select>
                             </div>
                         </div>
-                        
-                      
-                    
+
+                        <div class="form-group mb-3 row">
+                            <label class="col-md-2 col-form-label text-white" for="precio">Ingresa el Precio</label>
+                            <div class="col-sm-10">
+                                <input type="number" class="form-control form-control-sm col-md-6" th:field="*{precio}" placeholder= "5000" id="peliculas" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="input-group mb-3">
+                            <label class="col-md-2 col-form-label text-white" for="activo">Activo?</label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox"  th:field="*{activo}" >
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>
                     </form>
                 </div>

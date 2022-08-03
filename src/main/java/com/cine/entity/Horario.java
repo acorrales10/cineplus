@@ -18,12 +18,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "horario")
 public class Horario implements Serializable {
-    
-     @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     
-     private long id;
-    private String horario;
+
+    private long id;
+    private String agenda;
 
     public long getId() {
         return id;
@@ -33,13 +33,12 @@ public class Horario implements Serializable {
         this.id = id;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getAgenda() {
+        return agenda;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setAgenda(String horario) {
+        this.agenda = horario;
     }
-    
-    
+
 }

@@ -5,6 +5,7 @@
 package com.cine.repository;
 
 import com.cine.entity.Cartelera;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface CarteleraRepository extends CrudRepository<Cartelera,Long>{
+    List<Cartelera> findAllByActivo(boolean activo);
     
 }

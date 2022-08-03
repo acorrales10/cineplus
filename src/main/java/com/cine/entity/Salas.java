@@ -9,19 +9,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author AMCG_
  */
 @Entity
+@Table(name="salas")
 public class Salas implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     
     private long id;
-    private String salas;
+    private String nombre;
     private String imagen;
     private String descripcion;
 
@@ -33,12 +35,12 @@ public class Salas implements Serializable {
         this.id = idsalas;
     }
 
-    public String getSalas() {
-        return salas;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setSalas(String salas) {
-        this.salas = salas;
+    public void setNombre(String salas) {
+        this.nombre = salas;
     }
 
     public String getImagen() {

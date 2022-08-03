@@ -36,7 +36,7 @@ public class SalasController {
     
     @GetMapping("/salas/crear")
     public String crearSalas(Model model) {
-        model.addAttribute("salas", new Salas());
+        model.addAttribute("sala", new Salas());
         return "crear_sala";
 
     }

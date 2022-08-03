@@ -39,5 +39,10 @@ public class CarteleraService implements ICarteleraService{
     public void delete(long id) {
         carteleraRepository.deleteById(id);
     }
+
+    @Override
+    public List<Cartelera> getAllCarteleraActivas() {
+        return (List<Cartelera>) carteleraRepository.findAllByActivo(true);
+    }
     
 }

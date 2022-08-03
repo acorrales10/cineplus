@@ -17,6 +17,7 @@ public interface ICarteleraService {
     public Cartelera getCarteleraById (long id);
     public void saveCartelera(Cartelera cartelera);
     public void delete (long id);
+    public List<Cartelera> getAllCarteleraActivas();
     
     
 }

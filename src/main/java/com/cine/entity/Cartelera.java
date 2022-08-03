@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -18,13 +20,26 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "cartelera")
 public class Cartelera implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nombrepelicula;
-    private String horario;
-    private String sala;
+    private double precio;
+    private boolean activo;
+   
+
+    @ManyToOne
+    @JoinColumn(name = "pelicula_id")
+    private Peliculas peliculas;
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "agenda_id")
+    private Horario horario;
+    
+    @ManyToOne
+    @JoinColumn(name = "sala_id")
+    private Salas salas;
 
     public long getId() {
         return id;
@@ -34,29 +49,44 @@ public class Cartelera implements Serializable {
         this.id = id;
     }
 
-    public String getNombrepelicula() {
-        return nombrepelicula;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setNombrepelicula(String nombre_Pelicula) {
-        this.nombrepelicula = nombre_Pelicula;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    public String getHorario() {
+    public boolean isActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public Peliculas getPeliculas() {
+        return peliculas;
+    }
+
+    public void setPeliculas(Peliculas peliculas) {
+        this.peliculas = peliculas;
+    }
+
+    public Horario getHorario() {
         return horario;
     }
 
-    public void setHorario(String horario) {
+    public void setHorario(Horario horario) {
         this.horario = horario;
     }
 
-    public String getSala() {
-        return sala;
+    public Salas getSalas() {
+        return salas;
     }
 
-    public void setSala(String sala) {
-        this.sala = sala;
+    public void setSalas(Salas salas) {
+        this.salas = salas;
     }
-    
-      
+ 
 }

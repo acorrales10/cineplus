@@ -48,8 +48,8 @@ public class PeliculasController {
     @GetMapping("/peliculas/editPeliculas/{id}")
     public String editarPeliculas(@PathVariable("id") Long idPeliculas, Model model) {
         Peliculas peliculas = peliculasService.getPeliculasById(idPeliculas);
-        model.addAttribute("peliculas", peliculas);
-        return "crear_peliculas";
+        model.addAttribute("pelicula", peliculas);
+        return "crear_pelicula";
 
     }
     @GetMapping("/peliculas/delete/{id}")
