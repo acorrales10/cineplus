@@ -15,5 +15,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RegistroRepository extends CrudRepository<Registro,Long> {
+    Registro findByCorreo (String correo);
   
 }

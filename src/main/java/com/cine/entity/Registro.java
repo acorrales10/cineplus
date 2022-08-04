@@ -5,6 +5,9 @@
 package com.cine.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +28,10 @@ public class Registro implements Serializable {
     private String nombre;
     private String correo;
     private String contrasena;
-    private String rol;
+    private String rol = "";
+    private int active;
+    private String permisos= "";
+    
     
 
     public long getId() {
@@ -60,16 +66,28 @@ public class Registro implements Serializable {
         this.contrasena = password;
     }
 
-    public String getRol() {
-        return rol;
+    public List<String> getRolList() {
+        if(this.rol.length() > 0){
+        return Arrays.asList(this.rol.split(","));
+    }
+        return new ArrayList<>();
     }
 
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-    
-    
+   
 
-  
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    public List<String> getPermisos() {
+            if(this.permisos.length() > 0){
+        return Arrays.asList(this.permisos.split(",")); 
+    }
+        return new ArrayList<>();
+    }
 
 }

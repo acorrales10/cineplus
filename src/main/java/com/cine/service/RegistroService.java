@@ -41,4 +41,9 @@ public class RegistroService implements IRegistroService {
         registroRepository.deleteById(id);
         
     }  
+
+    @Override
+    public Registro findByCorreo(String correo) {
+       return registroRepository.findByCorreo(correo);
+    }
 }

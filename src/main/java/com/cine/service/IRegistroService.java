@@ -17,5 +17,6 @@ public interface IRegistroService {
     public Registro getRegistroById (long id);
     public void saveRegistro(Registro registro);
     public void delete (long id);
+    public Registro findByCorreo (String correo);
     
 }
