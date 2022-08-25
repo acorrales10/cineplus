@@ -11,13 +11,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 body{
     height:100vh;
     width:100vw;
-    background-color:black !important;
+    background-color:#202020 !important;
 
 }
 
 .logo{
     width:200px;
     cursor:pointer;
+}
+
+.navbar{
+    background: black !important;
 }
 
 
@@ -43,10 +47,28 @@ body{
     margin-bottom: 15px;
     color:white;
 }
+.text-shadow{
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
 
-.content p{
-    font-size: 45px;
-    color:gray;
+.drk:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: black;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.carousel-indicators{
+    z-index: 999 !important;
+}
+.carousel-caption {
+    z-index: 2;
 }
 
 .trailer{
@@ -106,4 +128,6 @@ footer{
     bottom:50px;
     right:160px;
 */
+
+
 

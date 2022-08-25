@@ -45,4 +45,14 @@ public class CarteleraService implements ICarteleraService{
         return (List<Cartelera>) carteleraRepository.findAllByActivo(true);
     }
     
+    @Override
+    public List<Cartelera> getAllCarteleraCarousel() {
+        return (List<Cartelera>) carteleraRepository.findAllByHome(true);
+    }
+    
+    @Override
+    public List<Cartelera> getAllCarteleraPreventa() {
+        return (List<Cartelera>) carteleraRepository.findAllByPreventa(true);
+    }
+    
 }

@@ -25,41 +25,41 @@ public class HorarioController {
     @Autowired
     private IHorarioService horarioService;
     
-     @GetMapping("/horario")
+     @GetMapping("/admin/horarios")
     public String index(Model model) {
         List<Horario> listaHorario = horarioService.getAllHorario();
         model.addAttribute("titulo", "Tabla horario");
         model.addAttribute("horario", listaHorario);
-        return "horario";
+        return "administrador/horario";
     
     
 }
     
-      @GetMapping("/horario/crear")
+      @GetMapping("admin/horario/crear")
     public String crearHorario(Model model) {
         model.addAttribute("horario", new Horario());
-        return "crear_horario";
+        return "administrador/crear_horario";
 
     }
     
-    @PostMapping("/horario/save")
+    @PostMapping("admin/horario/save")
     public String guardarHorario(@ModelAttribute Horario horario) {
         horarioService.saveHorario(horario);
-        return "redirect:/horario";
+        return "redirect:/admin/horarios";
     }
     
-     @GetMapping("/horario/editHorario/{id}")
+     @GetMapping("admin/horario/editHorario/{id}")
     public String editarHorario(@PathVariable("id") Long idHorario, Model model) {
         Horario horario = horarioService.getHorarioById(idHorario);
         model.addAttribute("horario", horario);
-        return "crear_horario";
+        return "administrador/crear_horario";
 
     }
     
-    @GetMapping("/horario/delete/{id}")
+    @GetMapping("admin/horario/delete/{id}")
     public String eliminarHorario(@PathVariable("id") Long idHorario, Model model) {
         horarioService.delete(idHorario);
-        return "redirect:/horario";
+        return "redirect:/admin/horarios";
 
     }
 }

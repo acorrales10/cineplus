@@ -6,8 +6,11 @@ package com.cine.controller;
 
 import com.cine.entity.Registro;
 import com.cine.service.IRegistroService;
+import com.cine.service.UserPrincipal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,25 +28,41 @@ public class RegistroController {
     @Autowired
     private IRegistroService registroService;
 
-    @GetMapping("/usuarios")
+    @GetMapping("/admin/usuarios")
     public String index(Model model) {
         List<Registro> listaRegistro = registroService.getAllRegistro();
         model.addAttribute("titulo", "Tabla usuarios");
         model.addAttribute("registro", listaRegistro);
-        return "registro";
+        return "administrador/registro";
     }
-    
-     @GetMapping("/usuarios/crear")
+
+    @GetMapping("/usuarios/crear")
     public String crearPersona(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println("autenticado? " + authentication.isAuthenticated());
         model.addAttribute("registro", new Registro());
-        return "crear_usuario";
+        return "administrador/crear_usuario";
 
     }
 
     @PostMapping("/usuarios/save")
     public String guardarRegistro(@ModelAttribute Registro registro) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication.isAuthenticated()) {
+            Object principal = SecurityContextHolder.getContext().getAuthentication();
+            /// Asignar tiquete a usuario iniciado si hay sesion
+            if (principal instanceof UserPrincipal) {
+                registro.setPermisos(registro.getRol());
+                registro.setActive(1);
+            } else {
+                
+                registro.setPermisos("Cliente");
+                registro.setRol("Cliente");
+                registro.setActive(1);
+            }
+        }
         registroService.saveRegistro(registro);
-        return "redirect:/usuarios";
+        return "redirect:/login";
     }
 
     @GetMapping("/usuarios/editRegistro/{id}")

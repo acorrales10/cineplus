@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ae2ec345-0086-461a-8aed-d75406639450">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="20"/>
+	<property name="ireport.y" value="124"/>
+	<parameter name="codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ec46d278-abd9-4876-85e9-c56f625a3504"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tiquete.`id` AS tiquete_id,
+     tiquete.`usuario_id` AS tiquete_usuario_id,
+     tiquete.`cartelera_id` AS tiquete_cartelera_id,
+     tiquete.`asiento_c` AS tiquete_asiento_c,
+     tiquete.`asiento_p` AS tiquete_asiento_p,
+     tiquete.`nombres` AS tiquete_nombres,
+     tiquete.`apellidos` AS tiquete_apellidos,
+     tiquete.`email` AS tiquete_email,
+     tiquete.`direccion` AS tiquete_direccion,
+     tiquete.`total` AS tiquete_total,
+     tiquete.`codigo` AS tiquete_codigo,
+     usuarios.`id` AS usuarios_id,
+     usuarios.`nombre` AS usuarios_nombre,
+     usuarios.`correo` AS usuarios_correo,
+     usuarios.`contrasena` AS usuarios_contrasena,
+     usuarios.`email` AS usuarios_email,
+     usuarios.`rol` AS usuarios_rol,
+     usuarios.`active` AS usuarios_active,
+     usuarios.`permisos` AS usuarios_permisos,
+     cartelera.`id` AS cartelera_id,
+     cartelera.`id` AS cartelera_id,
+     cartelera.`pelicula_id` AS cartelera_pelicula_id,
+     cartelera.`agenda_id` AS cartelera_agenda_id,
+     cartelera.`sala_id` AS cartelera_sala_id,
+     cartelera.`precio` AS cartelera_precio,
+     cartelera.`activo` AS cartelera_activo,
+     cartelera.`preventa` AS cartelera_preventa,
+     cartelera.`home` AS cartelera_home,
+     peliculas.`id` AS peliculas_id,
+     peliculas.`pelicula` AS peliculas_pelicula,
+     peliculas.`imagen` AS peliculas_imagen,
+     peliculas.`genero` AS peliculas_genero,
+     peliculas.`clasificacion` AS peliculas_clasificacion,
+     peliculas.`descripcion` AS peliculas_descripcion,
+     peliculas.`actores` AS peliculas_actores,
+     peliculas.`duracion` AS peliculas_duracion,
+     peliculas.`imagen_back` AS peliculas_imagen_back,
+     peliculas.`year` AS peliculas_year,
+     salas.`id` AS salas_id,
+     salas.`nombre` AS salas_nombre,
+     salas.`descripcion` AS salas_descripcion,
+     salas.`imagen` AS salas_imagen,
+     horario.`id` AS horario_id,
+     horario.`agenda` AS horario_agenda
+FROM
+     `tiquete` tiquete INNER JOIN `usuarios` usuarios ON tiquete.`usuario_id` = usuarios.`id`
+     INNER JOIN `cartelera` cartelera ON tiquete.`cartelera_id` = cartelera.`id`
+     INNER JOIN `peliculas` peliculas ON cartelera.`pelicula_id` = peliculas.`id`
+     INNER JOIN `salas` salas ON cartelera.`sala_id` = salas.`id`
+     INNER JOIN `horario` horario ON cartelera.`agenda_id` = horario.`id`
+WHERE
+     tiquete.`codigo` = $P{codigo}]]>
+	</queryString>
+	<field name="tiquete_id" class="java.lang.Integer"/>
+	<field name="tiquete_usuario_id" class="java.lang.Integer"/>
+	<field name="tiquete_cartelera_id" class="java.lang.Integer"/>
+	<field name="tiquete_asiento_c" class="java.lang.String"/>
+	<field name="tiquete_asiento_p" class="java.lang.String"/>
+	<field name="tiquete_nombres" class="java.lang.String"/>
+	<field name="tiquete_apellidos" class="java.lang.String"/>
+	<field name="tiquete_email" class="java.lang.String"/>
+	<field name="tiquete_direccion" class="java.lang.String"/>
+	<field name="tiquete_total" class="java.math.BigDecimal"/>
+	<field name="tiquete_codigo" class="java.lang.String"/>
+	<field name="usuarios_id" class="java.lang.Integer"/>
+	<field name="usuarios_nombre" class="java.lang.String"/>
+	<field name="usuarios_correo" class="java.lang.String"/>
+	<field name="usuarios_contrasena" class="java.lang.String"/>
+	<field name="usuarios_email" class="java.lang.String"/>
+	<field name="usuarios_rol" class="java.lang.String"/>
+	<field name="usuarios_active" class="java.lang.Integer"/>
+	<field name="usuarios_permisos" class="java.lang.String"/>
+	<field name="cartelera_id" class="java.lang.Integer"/>
+	<field name="cartelera_pelicula_id" class="java.lang.Integer"/>
+	<field name="cartelera_agenda_id" class="java.lang.Integer"/>
+	<field name="cartelera_sala_id" class="java.lang.Integer"/>
+	<field name="cartelera_precio" class="java.lang.Double"/>
+	<field name="cartelera_activo" class="java.lang.Integer"/>
+	<field name="cartelera_preventa" class="java.lang.Integer"/>
+	<field name="cartelera_home" class="java.lang.Integer"/>
+	<field name="peliculas_id" class="java.lang.Integer"/>
+	<field name="peliculas_pelicula" class="java.lang.String"/>
+	<field name="peliculas_imagen" class="java.lang.String"/>
+	<field name="peliculas_genero" class="java.lang.String"/>
+	<field name="peliculas_clasificacion" class="java.lang.String"/>
+	<field name="peliculas_descripcion" class="java.lang.String"/>
+	<field name="peliculas_actores" class="java.lang.String"/>
+	<field name="peliculas_duracion" class="java.lang.String"/>
+	<field name="peliculas_imagen_back" class="java.lang.String"/>
+	<field name="peliculas_year" class="java.lang.Integer"/>
+	<field name="salas_id" class="java.lang.Integer"/>
+	<field name="salas_nombre" class="java.lang.String"/>
+	<field name="salas_descripcion" class="java.lang.String"/>
+	<field name="salas_imagen" class="java.lang.String"/>
+	<field name="horario_id" class="java.lang.Integer"/>
+	<field name="horario_agenda" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" uuid="9392f6a4-bb40-4aef-a2fe-c21b94b84c0f"/>
+			</rectangle>
+			<image>
+				<reportElement x="10" y="8" width="224" height="63" uuid="c4ded9f3-9984-4abd-852c-ea050924a228"/>
+				<imageExpression><![CDATA["http://localhost:8080/reportes/main_logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="252" y="22" width="285" height="41" uuid="e31afe8d-eeeb-4dd4-9b4c-dfa839ffcd28"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gracias por tu compra!]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="161" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="127" y="13" width="428" height="20" uuid="36f1be5c-5c6a-4b4e-8a79-f8975d96f7a2"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="13" width="122" height="20" uuid="07fe647c-71c6-4303-9fcf-fde70e16f011"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="42" width="122" height="20" uuid="9a64b8c1-c059-4b9e-a2ae-28ecba4d64f1"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="42" width="122" height="20" uuid="20cc852b-27fb-4aeb-9d05-9760d78649e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="127" y="42" width="428" height="20" uuid="124e5fde-2573-4d6f-95e8-cd654b7782cb"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="127" y="72" width="428" height="20" uuid="1811a879-4f3f-4fba-ab4d-abc8086be385"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="72" width="122" height="20" uuid="671a1a4d-8e15-45a9-8ce3-8a980ffe1718"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="127" y="102" width="428" height="20" uuid="4a0ddcdd-2ec3-4b33-b065-59b3b378ed6a"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="0" y="102" width="122" height="20" uuid="cfd3f61f-2eab-43a2-a4c4-f614d7836cef"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="72" width="122" height="20" uuid="c4864034-f59a-4295-9ad0-026fb17d5628"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sala]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="102" width="122" height="20" uuid="c977385d-0dc5-41d5-b533-635e8584c254"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Horario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="127" y="13" width="428" height="20" uuid="fe034ee3-7028-41b8-a226-525150573cff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tiquete_codigo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="13" width="122" height="20" uuid="7fec7b61-37c0-49de-97cc-85dc96349b38"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tiquete #]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="127" y="42" width="428" height="20" uuid="d43470f8-dd56-4f30-980f-1c03d06c23a0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tiquete_nombres} + " "+ $F{tiquete_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="72" width="428" height="20" uuid="2765c1b5-e725-496d-9c0f-33892ab96960"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{salas_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="102" width="428" height="20" uuid="19143dac-1680-4b32-956e-ad8eb332b372"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horario_agenda}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="141" width="189" height="20" uuid="09ad3eee-3001-4c61-983e-b830fa80ad6e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="189" y="141" width="122" height="20" uuid="8b9f1b36-4ba3-4d9f-bd9a-30679c8878e9"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="311" y="141" width="122" height="20" uuid="07833594-1a3a-4422-bc88-5f7075eac973"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="433" y="141" width="122" height="20" uuid="b4bba29d-f45d-4eaa-943d-e43f892dfa51"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="141" width="189" height="20" uuid="e1b63324-45df-4c74-a142-9ad0ffff4efe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Producto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="141" width="122" height="20" uuid="77aa30be-10c4-49ef-b640-9fdd87f846f5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="311" y="141" width="122" height="20" uuid="6f057040-f8e2-48ff-9db4-e97bfa421e67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="433" y="141" width="122" height="20" uuid="f7dafee1-7b29-412b-af36-2e7b94a8a4cd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<subreport>
+				<reportElement x="-1" y="0" width="556" height="28" uuid="172dd4d3-2914-4f8f-bc0f-524cf79a3bda"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$F{tiquete_id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["http://localhost:8080/reportes/detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-1" y="0" width="555" height="42" uuid="19674bec-939d-4e26-821a-4c233d7a40d2"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="311" y="12" width="122" height="20" uuid="2b75b75c-8e16-4267-ba34-e4861dccc786"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="437" y="12" width="117" height="20" uuid="d0eeaab0-b9e8-4e07-bc46-6683bf16f0de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tiquete_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

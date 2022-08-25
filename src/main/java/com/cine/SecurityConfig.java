@@ -21,6 +21,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 /**
@@ -62,24 +63,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public SecurityConfig(UserService userPrincipalDetailsService) {
         this.userDetailsService = userPrincipalDetailsService;
     }
-    
 
-    
     @Override
-    protected void configure(AuthenticationManagerBuilder auth){
+    protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
     }
 // metodo funciona para hacer la autenticacion del usuario 
+
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/","/cartelera","salas_Formatos","proximos_estrenos").permitAll()
+                .antMatchers("/", "/cartelera", "salas_Formatos", "proximos_estrenos").permitAll()
                 .antMatchers("/resources/**").permitAll()
-                .antMatchers("/cartelera/admin", "/pelicula/crear", "/horario","/salas","/horario/crear","/salas/crear").hasRole("Admin")
+                .antMatchers("/cartelera/admin", "/pelicula/crear", "/horario", "/salas", "/horario/crear", "/salas/crear").hasRole("Admin")
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll().defaultSuccessUrl("/", true);
+                .loginPage("/login").permitAll().defaultSuccessUrl("/", true).and().logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/");
 
     }
+
 }

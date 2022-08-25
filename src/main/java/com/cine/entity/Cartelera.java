@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
@@ -26,8 +28,10 @@ public class Cartelera implements Serializable {
     private long id;
     private double precio;
     private boolean activo;
-   
+    private boolean preventa;
+    private boolean home;
 
+    
     @ManyToOne
     @JoinColumn(name = "pelicula_id")
     private Peliculas peliculas;
@@ -87,6 +91,22 @@ public class Cartelera implements Serializable {
 
     public void setSalas(Salas salas) {
         this.salas = salas;
+    }
+    
+    public boolean isPreventa() {
+        return preventa;
+    }
+
+    public void setPreventa(boolean preventa) {
+        this.preventa = preventa;
+    }
+
+    public boolean isHome() {
+        return home;
+    }
+
+    public void setHome(boolean home) {
+        this.home = home;
     }
  
 }

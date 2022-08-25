@@ -44,33 +44,40 @@ public class CarteleraController {
         model.addAttribute("cartelera", carteleraService.getAllCarteleraActivas());
         return "cartelera_publico";
     }
-
-    @GetMapping("/cartelera/admin")
-    public String crearPeliculas(Model model) {
+    
+    @GetMapping("/proximos_Estrenos")
+    public String proximosEstrenos(Model model) {
         model.addAttribute("titulo", "Tabla Cartelera");
+        model.addAttribute("cartelera", carteleraService.getAllCarteleraPreventa());
+        return "proximos_Estrenos";
+    }
+
+    @GetMapping("/admin/cartelera")
+    public String carteleraAdmin(Model model) {
+        model.addAttribute("titulo", "Cartelera");
         model.addAttribute("cartelera", carteleraService.getAllCartelera());
-        return "cartelera";
+        return "administrador/cartelera";
 
     }
 
-    @GetMapping("/cartelera/crear")
+    @GetMapping("/admin/cartelera/crear")
     public String crearCartelera(Model model) {
-        model.addAttribute("pelicula", new Peliculas());
+        model.addAttribute("cartelera", new Cartelera());
         model.addAttribute("peliculas", peliculasService.getAllPeliculas());
         model.addAttribute("salas", salasService.getAllSalas());
         model.addAttribute("horarios", horarioService.getAllHorario());
         model.addAttribute("titulo", "Agregar a Cartelera");
-        return "crear_cartelera";
+        return "administrador/crear_cartelera";
 
     }
 
-    @PostMapping("/cartelera/save")
+    @PostMapping("/admin/cartelera/save")
     public String guardarCartelera(@ModelAttribute Cartelera cartelera) {
         carteleraService.saveCartelera(cartelera);
-        return "redirect:/cartelera/admin";
+        return "redirect:/admin/cartelera";
     }
 
-    @GetMapping("/cartelera/editCartelera/{id}")
+    @GetMapping("/admin/cartelera/editCartelera/{id}")
     public String editarCartelera(@PathVariable("id") Long idCartelera, Model model) {
         Cartelera cartelera = carteleraService.getCarteleraById(idCartelera);
         model.addAttribute("cartelera", cartelera);
@@ -78,14 +85,14 @@ public class CarteleraController {
         model.addAttribute("salas", salasService.getAllSalas());
         model.addAttribute("horarios", horarioService.getAllHorario());
         model.addAttribute("titulo", "Editar Cartelera");
-        return "crear_cartelera";
+        return "administrador/crear_cartelera";
 
     }
 
-    @GetMapping("/cartelera/delete/{id}")
+    @GetMapping("/admin/cartelera/delete/{id}")
     public String eliminarCartelera(@PathVariable("id") Long idCartelera, Model model) {
-        peliculasService.delete(idCartelera);
-        return "redirect:/cartelera/admin";
+        carteleraService.delete(idCartelera);
+        return "redirect:/admin/cartelera";
 
     }
 

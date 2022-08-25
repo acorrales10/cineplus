@@ -27,6 +27,43 @@ public class Peliculas  implements Serializable{
     private String genero;
     private String clasificacion;
     private String descripcion;
+    private int year;
+    private String actores;
+    private String duracion;
+    private String imagen_back;
+    
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getActores() {
+        return actores;
+    }
+
+    public void setActores(String actores) {
+        this.actores = actores;
+    }
+
+    public String getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+
+    public String getImagenBack() {
+        return imagen_back;
+    }
+
+    public void setImagenBack(String imagen_back) {
+        this.imagen_back = imagen_back;
+    }
 
     public long getId() {
         return id;

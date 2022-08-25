@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear</title>
+       <link rel="stylesheet"  th:href="@{/css/Cartelera.css}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"><img th:src="@{/images/main_logo.png}" class='logo' alt="Este es mi logo"/></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item" ><a class="nav-link" href="/" th:text="#{plantilla.home}"/></li>
+                        <li class="nav-item"><a class="nav-link " href="/admin/cartelera"th:text="#{plantilla.cartelera}"/></li>
+                        <li class="nav-item" ><a class="nav-link" href="/admin/peliculas" th:text="#{plantilla.peliculas}"/></li>
+                        <li class="nav-item" ><a class="nav-link active" href="/admin/salas" th:text="#{plantilla.salas}"/></li>
+                        <li class="nav-item" ><a class="nav-link" href="/admin/horarios" th:text="#{plantilla.horarios}"/></li>
+                        <li class="nav-item" ><a class="nav-link" href="/admin/food" th:text="#{plantilla.productos}"/></li>
+                        <li class="nav-item" ><a class="nav-link" href="/admin/tiquetes" th:text="#{plantilla.tiquetes}"/></li>
+                        <li class="nav-item" ><a class="nav-link" href="/admin/usuarios" th:text="#{plantilla.usuarios}"/></li>
+                        <li sec:authorize="isAnonymous()" class="nav-item"><a class="nav-link" href="/login" th:text="#{plantilla.iniciar_sesion}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                        <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/logout}" th:text="#{plantilla.cerrar_sesion}"><i class="fa-solid fa-lock"></i></a></li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                               th:href="${urlBuilder.replaceQueryParam('lang','es').toUriString()}">ES</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                               th:href="${urlBuilder.replaceQueryParam('lang','en').toUriString()}">EN</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <div class="container mt-5">
+
+            <div class="card-header bg-black text-white"> </div>
+            <div class="card-body">
+
+                <!-------------------Esto es un Formulario--------------- -->
+                <div class="container">
+                    <form th:object = "${registro}"
+                          th:action="@{/usuarios/save}"
+                          method="POST"
+                          >
+                        <input type="hidden" th:field="*{id}">
+                        <div class="form-group mb-3 row">
+                            <label class="col-md-2 col-form-label text-white" for="nombre">Nombre</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control form-control-sm col-md-6" th:field="*{nombre}" placeholder= "Nombre del usuario" id="nombres" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-form-label col-md-2 text-white" for="correo">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" th:field="*{correo}" class="form-control form-control-sm col-md-6" placeholder= "test@test.com" id="correo" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+                        <div class="form-group mb-3 row">
+                            <label class="form-control-sm col-form-label col-md-2 text-white" for="contrasena">Contrasena</label>
+                            <div class="col-sm-10">
+                                <input type="password" th:field="*{contrasena}" class="form-control form-control-sm col-md-6" placeholder= "Juanito11@" id="email" aria-describedby="emailHelp">
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3 row" >
+                            <label class="form-control-sm col-md-2 col-form-label text-white" for="rol">Rol</label>
+                            <div class="col-sm-10" sec:authorize="hasRole('ROLE_Admin')">
+                                <select class="custom-select" id="rol" th:field="*{rol}">
+                                    <option value="Admin" selected >Admin</option>
+                                    <option value="Cliente">Cliente</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-10" sec:authorize="!hasRole('ROLE_Admin')">
+                                <input class="form-control" type="text" th:name="rol" value="Cliente" readonly disabled>
+                            </div>
+                        </div>
+                        
+                        
+
+                        <button type="submit" class="btn btn-primary" value="Guardar">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

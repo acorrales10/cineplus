@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Pago</title>
+        <link rel="stylesheet"  th:href="@{/css/Cartelera.css}">
+        <link rel="stylesheet"  th:href="@{/css/Pago.css}">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/"><img th:src="@{/images/main_logo.png}" class='logo' alt="Este es mi logo"/></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav">
+                            <li class="nav-item" ><a class="nav-link" href="/" th:text="#{plantilla.home}"/></li>
+                            <li class="nav-item"><a class="nav-link active" href="/cartelera"th:text="#{plantilla.cartelera}"/></li>
+                            <li class="nav-item"><a class="nav-link" href="/proximos_Estrenos"th:text="#{plantilla.proximos_estrenos}"/></li>
+                            <li class="nav-item"><a class="nav-link" href="/salas_Formatos"th:text="#{plantilla.salas_formatos}"/></li>
+                            <li sec:authorize="isAnonymous()" class="nav-item"><a class="nav-link" href="/login" th:text="#{plantilla.iniciar_sesion}"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                            <li sec:authorize="isAuthenticated()" class="nav-item"><a class="nav-link" th:href="@{/logout}" th:text="#{plantilla.cerrar_sesion}"><i class="fa-solid fa-lock"></i></a></li>
+                            <li sec:authorize="hasRole('ROLE_Admin')" class="nav-item"><a class="nav-link" th:href="@{/admin/cartelera}">Admin</a></li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                               th:href="${urlBuilder.replaceQueryParam('lang','es').toUriString()}">ES</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link" th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
+                               th:href="${urlBuilder.replaceQueryParam('lang','en').toUriString()}">EN</a>
+                        </li>
+                    </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class='content'>
+                <!-- este es nuestro contenido -->
+                <!-- br = break=realizar un salto de linea -->
+                <h1>GRACIAS POR TU COMPRA<br> </h1>
+
+            </div>
+
+            <div   class="card text-bg-dark mb-3 mt-5">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img th:src="${tiquete.getCartelera.getPeliculas.getImagen}"  class="img-fluid rounded-start" alt="...">
+                        <a  class="btn btn-lg btn-warning" target="_blank" th:href="${'/tiquete/pdf/'+tiquete.getCodigo}"> Descargar Comprobante </a>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="card-header">
+                                <h2 class="card-title" th:text="${'Tiquete #'+ tiquete.getCodigo}" />
+                            </div>
+                            <div class="card-body">
+                                <p>Nombre :  <b th:text="${tiquete.getNombres + ' '+ tiquete.getApellidos}" /> </p>
+                                <p>Sala :  <b th:text="${tiquete.getCartelera.getSalas.nombre}" /> </p>
+                                <p>Horario :  <b th:text="${tiquete.getCartelera.getHorario.getAgenda}" /> </p>
+
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-white" scope="col">Producto</th>
+                                            <th class="text-white" scope="col">Cantidad</th>
+                                            <th class="text-white" scope="col">Precio</th>
+                                            <th class="text-white" scope="col">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="producto, info : ${productos}" class="align-middle">
+                                            <th class="text-white" th:text="${producto.getNombre}"/>
+                                            <th class="text-white"  th:text="${producto.getCantidad}"/>
+                                            <th class="text-white"  th:text="${#numbers.formatDecimal(producto.getPrecio, 0, 'POINT', 2, 'COMMA')}"/>
+                                            <th class="text-white"  th:text="${#numbers.formatDecimal(producto.getTotal, 0, 'POINT', 2, 'COMMA')}"/>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2" class="text-white text-end">Total</td>
+                                            <td colspan="2" class="text-white" th:text="${ #numbers.formatDecimal(tiquete.total, 0, 'POINT', 2, 'COMMA')}">
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+    <footer>
+        <div class="redescontainer"><a th:text="#{plantilla.siguenos}"/> <img th:src="@{/images/facebook.png}" class='redes' alt="Este es mi logo"/> <img th:src="@{/images/instagram.png}" class='redes' alt="Este es mi logo"/></div>
+
+        <img th:src="@{/images/main_logo.png}" class='logofooter' alt="Este es mi logo"/>
+
+    </footer>
+</html>

@@ -17,6 +17,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author AMCG_
  */
 public class UserPrincipal implements UserDetails {
+
     private Registro registro;
 
     public UserPrincipal(Registro registro) {
@@ -27,16 +28,10 @@ public class UserPrincipal implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
 
-        //extract list of permissions (name)
-        this.registro.getPermisos().forEach(p -> {
-            GrantedAuthority authority = new SimpleGrantedAuthority(p);
-            authorities.add(authority);
-        });
-
-        this.registro.getRolList().forEach(r -> {
-            GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + r);
-            authorities.add(authority);
-        });
+        GrantedAuthority permission = new SimpleGrantedAuthority(this.registro.getPermisos());
+        authorities.add(permission);
+        GrantedAuthority rol = new SimpleGrantedAuthority("ROLE_" + this.registro.getRol());
+        authorities.add(rol);
         return authorities;
 
     }
@@ -48,7 +43,7 @@ public class UserPrincipal implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.registro.getNombre();
+        return this.registro.getCorreo();
     }
 
     @Override

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="68a06cd3-c301-4b3a-aebe-86517655f0aa">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[4]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tproductos.`id` AS tproductos_id,
+     tproductos.`nombre` AS tproductos_nombre,
+     tproductos.`cantidad` AS tproductos_cantidad,
+     tproductos.`precio` AS tproductos_precio,
+     tproductos.`total` AS tproductos_total,
+     tproductos.`imagen` AS tproductos_imagen,
+     tproductos.`tiquete_id` AS tproductos_tiquete_id
+FROM
+     `tproductos` tproductos
+WHERE
+     tproductos.`tiquete_id` = $P{id}]]>
+	</queryString>
+	<field name="tproductos_id" class="java.lang.Integer"/>
+	<field name="tproductos_nombre" class="java.lang.String"/>
+	<field name="tproductos_cantidad" class="java.lang.Double"/>
+	<field name="tproductos_precio" class="java.lang.Double"/>
+	<field name="tproductos_total" class="java.lang.Double"/>
+	<field name="tproductos_imagen" class="java.lang.String"/>
+	<field name="tproductos_tiquete_id" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="20">
+			<rectangle>
+				<reportElement x="1" y="0" width="189" height="20" uuid="3f234a0d-772f-47e1-bc61-aafcfb0d0d24"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="434" y="0" width="122" height="20" uuid="7dfb1f3d-5f6f-4f5b-900d-1900ac2290fc"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="190" y="0" width="122" height="20" uuid="830ab355-4b73-4f7d-9fbf-341dd80e3fa7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="312" y="0" width="122" height="20" uuid="da030e89-e2b9-4ea9-8014-b314621e2e12"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="0" width="189" height="20" uuid="9d454e6e-a64f-40f8-ad96-8ca9bb42c9a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tproductos_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="122" height="20" uuid="14bff1c9-ca8b-4283-b585-8c64efbdd4de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tproductos_cantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="312" y="0" width="122" height="20" uuid="14c110be-ea68-409e-8278-02d0c0e944c7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tproductos_precio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="0" width="121" height="20" uuid="689b24d2-4a8c-46bc-9bca-bb7ff2709dec"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{tproductos_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

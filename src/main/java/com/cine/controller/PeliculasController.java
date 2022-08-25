@@ -25,37 +25,37 @@ public class PeliculasController {
     @Autowired
     private IPeliculasService peliculasService;
     
-    @GetMapping("/peliculas")
+    @GetMapping("/admin/peliculas")
     public String index(Model model) {
         List<Peliculas> listaPeliculas = peliculasService.getAllPeliculas();
         model.addAttribute("titulo", "Tabla Peliculas");
         model.addAttribute("peliculas", listaPeliculas);
-        return "peliculas";   
+        return "administrador/peliculas";   
 }
-  @GetMapping("/peliculas/crear")
+  @GetMapping("/admin/peliculas/crear")
     public String crearPeliculas(Model model) {
         model.addAttribute("pelicula", new Peliculas());
-        return "crear_pelicula";
+        return "administrador/crear_pelicula";
 
     }  
     
-     @PostMapping("/peliculas/save")
+     @PostMapping("/admin/peliculas/save")
     public String guardarPeliculas(@ModelAttribute Peliculas peliculas) {
         peliculasService.savePeliculas(peliculas);
-        return "redirect:/peliculas";
+        return "redirect:/admin/peliculas";
     }
     
-    @GetMapping("/peliculas/editPeliculas/{id}")
+    @GetMapping("/admin/peliculas/editPeliculas/{id}")
     public String editarPeliculas(@PathVariable("id") Long idPeliculas, Model model) {
         Peliculas peliculas = peliculasService.getPeliculasById(idPeliculas);
         model.addAttribute("pelicula", peliculas);
-        return "crear_pelicula";
+        return "administrador/crear_pelicula";
 
     }
-    @GetMapping("/peliculas/delete/{id}")
+    @GetMapping("/admin/peliculas/delete/{id}")
     public String eliminarPeliculas(@PathVariable("id") Long idPeliculas, Model model) {
         peliculasService.delete(idPeliculas);
-        return "redirect:/peliculas";
+        return "redirect:/admin/peliculas";
 
     }
     

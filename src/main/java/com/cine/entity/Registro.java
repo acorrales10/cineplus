@@ -28,9 +28,9 @@ public class Registro implements Serializable {
     private String nombre;
     private String correo;
     private String contrasena;
-    private String rol = "";
+    private String rol;
     private int active;
-    private String permisos= "";
+    private String permisos;
     
     
 
@@ -66,12 +66,6 @@ public class Registro implements Serializable {
         this.contrasena = password;
     }
 
-    public List<String> getRolList() {
-        if(this.rol.length() > 0){
-        return Arrays.asList(this.rol.split(","));
-    }
-        return new ArrayList<>();
-    }
 
    
 
@@ -83,11 +77,23 @@ public class Registro implements Serializable {
         this.active = active;
     }
 
-    public List<String> getPermisos() {
-            if(this.permisos.length() > 0){
-        return Arrays.asList(this.permisos.split(",")); 
+    public String getRol() {
+        return rol;
     }
-        return new ArrayList<>();
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
+
+    public String getPermisos() {
+        return permisos;
+    }
+
+    public void setPermisos(String permisos) {
+        this.permisos = permisos;
+    }
+
+  
+    
 
 }

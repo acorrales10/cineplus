@@ -16,5 +16,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CarteleraRepository extends CrudRepository<Cartelera,Long>{
     List<Cartelera> findAllByActivo(boolean activo);
+    List<Cartelera> findAllByHome(boolean home);
+    List<Cartelera> findAllByPreventa(boolean home);
     
 }
