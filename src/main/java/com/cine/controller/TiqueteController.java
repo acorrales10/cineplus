@@ -65,7 +65,7 @@ public class TiqueteController {
 
     @Autowired
     private IFoodService foodService;
-//
+//seleccionar asiento 
     @GetMapping("/selecciona_asientos/{cartelera_id}")
     public String asientos(@PathVariable("cartelera_id") Long carteleraId, Model model) {
         model.addAttribute("cartelera", carteleraService.getCarteleraById(carteleraId));
@@ -105,7 +105,7 @@ public class TiqueteController {
         CrearTiqueteDto crearTiquete = new CrearTiqueteDto();
         tiquete.setCartelera(cartelera);
 
-        // agregar pelicula a carrito
+        // agregar pelicula a carrito 
         Carrito pelicula = new Carrito();
         pelicula.setCantidad(1);
         pelicula.setPrecio(cartelera.getPrecio());
@@ -119,13 +119,14 @@ public class TiqueteController {
         Iterator<Carrito> iterador = productos.getProductos().iterator();
         while (iterador.hasNext()) {
             producto = iterador.next();
-            if (producto.getCantidad() > 0) {
+            if (producto.getCantidad() > 0) {// agregar solo los productos que son mayor que cero
                 producto.setTotal(producto.getCantidad() * producto.getPrecio());
                 total += producto.getTotal();
             } else {
                 iterador.remove();
             }
         }
+        //pelicula primero en la lista
         productos.getProductos().add(0, pelicula);
 
         tiquete.setTotal(total);
